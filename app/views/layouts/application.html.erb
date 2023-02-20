@@ -10,7 +10,9 @@
 
     <%= stylesheet_link_tag "application" %>
   </head>
-
+  <% if logged_in? %>
+  <h2>Hello,<%= current_user.username%></h2>
+  <% end %>
   <body>
     <nav class="main-nav">
       <h1><a href="<%= cats_url %>">99 Cats</a></h1>

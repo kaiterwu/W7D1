@@ -10,15 +10,20 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_url(@user)
     else
-      render :new
+      render :new 
     end
 
   end
 
+  def show 
+    @user = User.find(params[:id])
+    render :show 
+  end 
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password_digest, :session_token)
+    params.require(:user).permit(:username, :password_digest, :session_token, :password)
   end
 
 end
